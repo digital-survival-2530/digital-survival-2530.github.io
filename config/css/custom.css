@@ -1,27 +1,47 @@
 /* 导航栏做居中处理 */
-#nav-right{
-    flex:1 1 auto;
+#nav-right {
+    flex: 1 1 auto;
     justify-content: flex-end;
     margin-left: auto;
     display: flex;
-    flex-wrap:nowrap;
+    flex-wrap: nowrap;
 }
+
 /* 去除导航栏选项中底下的蓝条 */
-/*#nav *::after{
-    background-color: transparent!important;
-}
-*/
+/*#nav *::after {
+    background-color: transparent !important;
+}*/
+
 /* 导航栏菜单鼠标移入字体放大 */
-#nav #site-name:hover, 
-#nav .menus_item:hover, 
-#nav #search-button:hover{
-    font-size:28px;
+#nav #site-name:hover,
+#nav .menus_item:hover,
+#nav #search-button:hover {
+    font-size: 28px;
 }
 
+/* ========== 缩略图统一样式：响应式宽度+固定比例+裁剪 ========== */
+.index-img,
+.post-cover {
+    width: 100%;
+    height: 0;
+    padding-top: 26.37%; /* 360 / 1366 ≈ 0.2637 */
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px; /* 可选圆角 */
+}
 
+.index-img img,
+.post-cover img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* 鼠标悬停动画 */
+}
 
-
-
-
-
-
+.index-img:hover img,
+.post-cover:hover img {
+    transform: scale(1.02);
+}
